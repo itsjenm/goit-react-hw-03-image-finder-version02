@@ -8,6 +8,7 @@ import Modal from "./Modal/Modal";
 export const App = () => {
   const [showModal, setShowModal] = useState(false)
   const [searchQuery, setSearchQuery] = useState('');
+  const [page, setPage] = useState(1);
   const [src, setSrc] = useState('');
   const [alt, setAlt] = useState('');
 
@@ -22,6 +23,7 @@ export const App = () => {
     }
 
     setSearchQuery(query)
+    setPage(page)
   }
 
   const toggleModal = data => {
@@ -33,6 +35,7 @@ export const App = () => {
       setAlt(tags);
     }
   };
+
 
 
   return (

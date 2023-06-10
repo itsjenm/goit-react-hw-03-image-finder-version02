@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Styled from './image_gallery_item.module.css';
 
 const ImageGalleryItem = ({ data, openModal }) => {
-
+ 
   return data.map(({id, webformatURL, largeImageURL, tags}) => (
       <li className={Styled.ImageGalleryItem} key={id} onClick={() => openModal({ largeImageURL, tags })} >
         <img src={webformatURL} className={Styled.ImageGalleryItem_image} alt={tags}  />

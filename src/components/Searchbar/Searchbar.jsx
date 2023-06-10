@@ -6,20 +6,24 @@ import { toast } from 'react-toastify';
 
 const Searchbar = ({ onSubmit }) => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(1)
     
     function handleSearchQueryChange (event) {
         setSearchQuery(event.currentTarget.value.toLowerCase());
+    
     }
 
     function handleSubmit(event) {
         event.preventDefault(); 
         if(searchQuery.trim() === '') {
             setSearchQuery('');
+            setPage(page)
             return toast.info('Input your search query');
         }
 
         onSubmit(searchQuery);
         setSearchQuery('');
+        
     }; 
 
 
