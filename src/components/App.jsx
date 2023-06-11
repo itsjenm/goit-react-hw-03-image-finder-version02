@@ -12,8 +12,10 @@ export const App = () => {
   const [src, setSrc] = useState('');
   const [alt, setAlt] = useState('');
 
+
   function handleSubmit(query) {
-    // console.log(query);
+    console.log(query);
+
     if (query === '') {
       return toast.info('Input a search query.')
     }
@@ -21,9 +23,8 @@ export const App = () => {
     if (query === searchQuery) {
       return toast.info('Input new search query.')
     }
-
-    setSearchQuery(query)
     setPage(page)
+    setSearchQuery(query)
   }
 
   const toggleModal = data => {

@@ -6,30 +6,26 @@ import { toast } from 'react-toastify';
 
 const Searchbar = ({ onSubmit }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [page, setPage] = useState(1)
+   
     
     function handleSearchQueryChange (event) {
         setSearchQuery(event.currentTarget.value.toLowerCase());
-    
     }
 
     function handleSubmit(event) {
         event.preventDefault(); 
         if(searchQuery.trim() === '') {
             setSearchQuery('');
-            setPage(page)
             return toast.info('Input your search query');
         }
-
         onSubmit(searchQuery);
         setSearchQuery('');
-        
     }; 
 
 
   return (
     <header className={Styled.Searchbar}>
-        <form className={Styled.SearchForm} onSubmit={handleSubmit}>
+        <form className={Styled.SearchForm} onSubmit={handleSubmit} >
             <button type='submit' className={Styled.SearchForm_button}>
                 <span className={Styled.SearchForm_button_label}>Search</span>
             </button>

@@ -10,7 +10,6 @@ import Button from '../Button/Button';
 const ImageGallery = ({ searchQuery, onModalOpen }) => {
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
-    const [currentPage, setCurrentPage] = useState(0);
     const [status, setStatus] = useState('idle');
     const [totalHits, setTotalHits] = useState(1);
 
@@ -20,16 +19,13 @@ const ImageGallery = ({ searchQuery, onModalOpen }) => {
         event.preventDefault();
         // console.log(page)
         setPage((prevPage) => prevPage + 1)
-        // console.log(currentPage)
-        setCurrentPage(page)
-        console.log(currentPage)
-        // setPage(page + 1)
         
     }
 
     useEffect(() => {
         const fetchImagesData = async () => {
             setStatus('pending');
+            
 
         try {
             const response = await fetchImages(searchQuery, page);
@@ -58,8 +54,6 @@ const ImageGallery = ({ searchQuery, onModalOpen }) => {
         }
 
     }, [searchQuery, page]);
-
-
 
     if (status === 'pending') {
         return (
