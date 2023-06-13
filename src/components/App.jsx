@@ -16,6 +16,7 @@ export const App = () => {
   const [images, setImages] = useState([]); 
   const [page, setPage] = useState(1); 
   const [showBtn, setShowBtn] = useState(false);
+  // eslint-disable-next-line
   const [totalHits, setTotalHits] = useState(1);
   
   
